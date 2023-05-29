@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on mflm.io</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on mflm.io</description>
+    <title>Categories on blog.mflm.info</title>
+    <link>https://blog.mflm.info/categories/</link>
+    <description>Recent content in Categories on blog.mflm.info</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-bt</language>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>pt-bt</language><atom:link href="https://blog.mflm.info/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
