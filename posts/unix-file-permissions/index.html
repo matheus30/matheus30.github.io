@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>
+  Permissões de arquivos no Unix · blog.mflm.info
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Matheus Moreira">
+<meta name="description" content="Vamos falar de forma resumida, como as permissões de arquivos funcionam no Unix">
+<meta name="keywords" content="blog,developer,cyber,k8s,golang">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Permissões de arquivos no Unix"/>
+<meta name="twitter:description" content="Vamos falar de forma resumida, como as permissões de arquivos funcionam no Unix"/>
+
+<meta property="og:title" content="Permissões de arquivos no Unix" />
+<meta property="og:description" content="Vamos falar de forma resumida, como as permissões de arquivos funcionam no Unix" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.mflm.info/posts/unix-file-permissions/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-11T19:39:05-03:00" />
+<meta property="article:modified_time" content="2023-06-11T19:39:05-03:00" />
+
+
+
+
+
+<link rel="canonical" href="https://blog.mflm.info/posts/unix-file-permissions/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0669b62fc2c181a12a4ba10be9984e385c9a5e83dc7cb7ae3759ad0b98d7e8b2.css" integrity="sha256-Bmm2L8LBgaEqS6EL6ZhOOFyaXoPcfLeuN1mtC5jX6LI=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      blog.mflm.info
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">Home</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Artigos</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://blog.mflm.info/posts/unix-file-permissions/">
+              Permissões de arquivos no Unix
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-06-11T19:39:05-03:00">
+                June 11, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/linux/">Linux</a>
+      <span class="separator">•</span>
+    <a href="/categories/security/">Security</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/unxi/">unxi</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/permiss%C3%B5es/">permissões</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/permissions/">permissions</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/file/">file</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/arquivo/">arquivo</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/linux/">linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="permissões-em-sistemas-operacionais-unix">
+  Permissões em sistemas operacionais Unix
+  <a class="heading-link" href="#permiss%c3%b5es-em-sistemas-operacionais-unix">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Bem, vamos falar sobre permissões em arquivos no Unix, de forma resumida temos três permissões associadas a um arquivo, a primeira é a de leitura (reader r), a segunda é a de escrita (writer w) a terceira e ultima é referente a executar o arquivo (execute x), além das três permissões existem também os três escopos ou classes onde as permissões são aplicadas, então as permissões podem ser distintas, o primeiro escopo de permissões são do proprietário, o segundo escopo é referente ao grupo que o arquivo pertence, e por fim o ultimo escopo se aplica a qualquer usuário que não se enquadre nos 2 primeiros escopos.</p>
+<p>Ficou confuso?, bora lá que vamos debulhar com exemplos.</p>
+<p>Primeiro, vamos considerar que estamos logados em um sistema operacional baseado no Unix, com usuário fulano, e ele pertence ao grupo xpto, ok.</p>
+<p>Acessando a pasta do usuário, digito o comando para listar arquivos e diretórios: ls (list) com parâmetro l (long list)</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ fulano@xpto:~/ $ ls -l
+drwxr-xr-x <span style="color:#ff0;font-weight:bold">3</span> fulano xpto <span style="color:#ff0;font-weight:bold">4096</span> May <span style="color:#ff0;font-weight:bold">28</span> 22:15 teste_pasta
+-rw-r--r-- <span style="color:#ff0;font-weight:bold">1</span> fulano xpto    <span style="color:#ff0;font-weight:bold">0</span> Jun <span style="color:#ff0;font-weight:bold">11</span> 21:26 teste_arquivo.txt
+</code></pre></div><p>Os 10 primeiros caracteres são uma sequência de d, r, w, x e -. Onde o primeiro representa geralmente se é um arquivo ou diretório. A representação do arquivo é - e para representar um diretório é d.</p>
+<p>Na tabela abaixo outros tipos,</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Caractere</th>
+<th style="text-align:center">Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">arquivo de bloco</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">arquivo de bloco</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">arquivo especial de caractere</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">canal</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">socket</td>
+</tr>
+</tbody>
+</table>
+<p>Bem, agora vamos para os outros 9 dígitos restantes (rwxr-xr-x exemplo do teste_pasta), em seguida separamos os 9 dígitos em 3 grupos que representam as classes que falamos acima.</p>
+<p>Olhando para o arquivo, teste_pasta</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">drwxr-xr-x <span style="color:#ff0;font-weight:bold">3</span> fulano xpto <span style="color:#ff0;font-weight:bold">4096</span> May <span style="color:#ff0;font-weight:bold">28</span> 22:15 teste_pasta
+  |  |  |
+  |  |  | -&gt; Permissão para qualquer usuário <span style="color:#fff;font-weight:bold">do</span> sistema operacional.
+  |  |-&gt; Permissão para os usuários <span style="color:#fff;font-weight:bold">do</span> grupo xpto.
+  |-&gt; Permissão <span style="color:#fff;font-weight:bold">do</span> proprietário fulano.
+</code></pre></div><p>Pera um pouco, acima eu chamei o diretório de arquivo, não é um erro do tradutor, em resumo praticamente tudo é um arquivo no Unix.</p>
+<blockquote>
+<p>No Linux e Unix tudo é um arquivo. Diretórios são arquivos, arquivos são arquivos, e dispositivos são arquivos. Dispositivos são geralmente referidos por nódulos; entretanto, eles ainda são arquivos.<!-- raw HTML omitted -->
+— <!-- raw HTML omitted -->Site Ubuntu, Help<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Então o proprietário que é o dono, tem as três permissões sobre a pasta, r = leitura, w = escrita e x = executar, já os usuários do grupo tem permissão de r = leitura e x = executar, e por fim, qualquer outro usuário também tem a permissão de r = leitura e x = executar.</p>
+<p>Por fim, deixo a você caro leito, uma questão para você praticar e validar o conhecimento adquirido aqui nesse artigo.
+Imagine que existe um segundo usuário no sistema operacional onde listei os arquivos, o usuário sicrano, o mesmo não pertence ao grupo xpto, qual a permissão que ele teria sobre o arquivo teste_arquivo.txt ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">-rw-r--r-- <span style="color:#ff0;font-weight:bold">1</span> fulano xpto    <span style="color:#ff0;font-weight:bold">0</span> Jun <span style="color:#ff0;font-weight:bold">11</span> 21:26 teste_arquivo.txt
+  |  |  |
+  |  |  | -&gt; Permissão para qualquer usuário <span style="color:#fff;font-weight:bold">do</span> sistema operacional.
+  |  |-&gt; Permissão para os usuários <span style="color:#fff;font-weight:bold">do</span> grupo xpto.
+  |-&gt; Permissão <span style="color:#fff;font-weight:bold">do</span> proprietário fulano.
+</code></pre></div><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>A citação acima foi extraída do <a href="https://help.ubuntu.com/kubuntu/desktopguide/pt_BR/directories-file-systems.html"  class="external-link" target="_blank" rel="noopener">site</a> de help do Ubuntu.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Matheus Moreira 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js" integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D&#43;Uk="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

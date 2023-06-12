@@ -2,12 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.mflm.info/tags/arquivo/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
     <loc>https://blog.mflm.info/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/categories/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
-    <loc>https://blog.mflm.info/about/</loc>
+    <loc>https://blog.mflm.info/tags/file/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/categories/linux/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/linux/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/permissions/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/permiss%C3%B5es/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/posts/unix-file-permissions/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/posts/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/categories/security/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/tags/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/unxi/</loc>
+    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/about/</loc>
   </url>
 </urlset>
