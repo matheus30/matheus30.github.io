@@ -6,7 +6,43 @@
     <description>Recent content in Tags on blog.mflm.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-bt</language>
-    <lastBuildDate>Sun, 11 Jun 2023 19:39:05 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2023 01:04:10 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>https://blog.mflm.info/tags/devops/</link>
+      <pubDate>Sun, 02 Jul 2023 01:04:10 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevSecOps</title>
+      <link>https://blog.mflm.info/tags/devsecops/</link>
+      <pubDate>Sun, 02 Jul 2023 01:04:10 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/tags/devsecops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Segurança</title>
+      <link>https://blog.mflm.info/tags/seguran%C3%A7a/</link>
+      <pubDate>Sun, 02 Jul 2023 01:04:10 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/tags/seguran%C3%A7a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shift Left</title>
+      <link>https://blog.mflm.info/tags/shift-left/</link>
+      <pubDate>Sun, 02 Jul 2023 01:04:10 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/tags/shift-left/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>arquivo</title>
       <link>https://blog.mflm.info/tags/arquivo/</link>
@@ -53,11 +89,11 @@
     </item>
     
     <item>
-      <title>unxi</title>
-      <link>https://blog.mflm.info/tags/unxi/</link>
+      <title>unix</title>
+      <link>https://blog.mflm.info/tags/unix/</link>
       <pubDate>Sun, 11 Jun 2023 19:39:05 -0300</pubDate>
       
-      <guid>https://blog.mflm.info/tags/unxi/</guid>
+      <guid>https://blog.mflm.info/tags/unix/</guid>
       <description></description>
     </item>
     

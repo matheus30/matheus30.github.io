@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on blog.mflm.info</title>
+    <link>https://blog.mflm.info/categories/devops/</link>
+    <description>Recent content in DevOps on blog.mflm.info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-bt</language>
+    <lastBuildDate>Sun, 02 Jul 2023 01:04:10 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevSecOps: Como adicionar segurança ao processo DevOps</title>
+      <link>https://blog.mflm.info/posts/devsecops/</link>
+      <pubDate>Sun, 02 Jul 2023 01:04:10 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/posts/devsecops/</guid>
+      <description>Antes de começar, vamos alinhar as expectativas e conceitos, primeiro nesse artigo, viso explicar uma forma de se abordar DevSecOps (Desenvolvimento, segurança e Operação), ao ciclo de desenvolvimento de software, e a sua esteira ou processo de DevOps.
+Bem, provavelmente quando você ler DevOps (Desenvolvimento e Operação integradas, com o foco de diminuir o tempo de entrega de um software) ou DevSecOps (Adicionar segurança ao DevOps), logo se pensa em pipeline, CI/CD, automações ou até mesmo alguma ferramenta, mas tanto DevOps quando DevSecOps são culturas e não ferramentas, a ideia em si é compartilhar responsabilidades no ciclo de desenvolvimento de um software para diminuir atritos entre times e tempo para entrega de um projeto.</description>
+    </item>
+    
+  </channel>
+</rss>

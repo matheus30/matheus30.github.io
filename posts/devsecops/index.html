@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>
+  DevSecOps: Como adicionar segurança ao processo DevOps · blog.mflm.info
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Matheus Moreira">
+<meta name="description" content="Como abordar seguraça ao ciclo de desenvolvimento de software e ao DevOps.">
+<meta name="keywords" content="blog,developer,cyber,k8s,golang">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DevSecOps: Como adicionar segurança ao processo DevOps"/>
+<meta name="twitter:description" content="Como abordar seguraça ao ciclo de desenvolvimento de software e ao DevOps."/>
+
+<meta property="og:title" content="DevSecOps: Como adicionar segurança ao processo DevOps" />
+<meta property="og:description" content="Como abordar seguraça ao ciclo de desenvolvimento de software e ao DevOps." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.mflm.info/posts/devsecops/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-02T01:04:10-03:00" />
+<meta property="article:modified_time" content="2023-07-02T01:04:10-03:00" />
+
+
+
+
+
+<link rel="canonical" href="https://blog.mflm.info/posts/devsecops/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0669b62fc2c181a12a4ba10be9984e385c9a5e83dc7cb7ae3759ad0b98d7e8b2.css" integrity="sha256-Bmm2L8LBgaEqS6EL6ZhOOFyaXoPcfLeuN1mtC5jX6LI=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      blog.mflm.info
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">Home</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Artigos</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://blog.mflm.info/posts/devsecops/">
+              DevSecOps: Como adicionar segurança ao processo DevOps
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-07-02T01:04:10-03:00">
+                July 2, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              5 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/devsecops/">DevSecOps</a>
+      <span class="separator">•</span>
+    <a href="/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/categories/seguran%C3%A7a/">Segurança</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/devsecops/">DevSecOps</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seguran%C3%A7a/">Segurança</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/devops/">DevOps</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/shift-left/">Shift Left</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Antes de começar, vamos alinhar as expectativas e conceitos, primeiro nesse artigo, viso explicar uma forma de se abordar DevSecOps (Desenvolvimento, segurança e Operação), ao ciclo de desenvolvimento de software, e a sua esteira ou processo de DevOps.</p>
+<p>Bem, provavelmente quando você ler DevOps (Desenvolvimento e Operação integradas, com o foco de diminuir o tempo de entrega de um software) ou DevSecOps (Adicionar segurança ao DevOps), logo se pensa em pipeline, CI/CD, automações ou até mesmo alguma ferramenta, mas tanto DevOps quando DevSecOps são culturas e não ferramentas, a ideia em si é compartilhar responsabilidades no ciclo de desenvolvimento de um software para diminuir atritos entre times e tempo para entrega de um projeto.</p>
+<p>Então, já que não é necessariamente uma ferramenta, como que tem até vaga com título DevOps/DevSecOps, e são profissionais disputados, bem, aqui vou descrever 3 etapas cruciais para se aderir segurança ao seu processo de DevOps.</p>
+<h2 id="1-processos">
+  1. Processos
+  <a class="heading-link" href="#1-processos">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Primeiro de tudo, defina os processos, parece o menor dos problemas quando se fala em DevSecOps, mas sem um processo bem desenhado e definido a automação começa a perder as suas vantagens, que são qualidade e confiabilidade. Imagine que você tem uma pipeline que entrega um software em uma cloud publica, o processo é simples, você sobe um commit para um repositório git, que aciona uma ação no seu pipeline que por sua vez, buildar, testa, faz uma análise de segurança estática e faz o deploy da sua versão no ambiente desejado, parece perfeito, correto?</p>
+<p>Em um cenário ideal, o exemplo da pipeline acima é perfeito, tudo flui, levando para contexto real, nem todos os projetos possuem testes, muitos projetos terão códigos vulneráveis, o deploy pode causar impacto para clientes, além de outras N etapas que se colocam em uma pipeline. Mas aí você está pensando, a casos e caso, correto?
+Ai onde a cultura DevSecOps pode ajudar a sua pipeline a ser uma ferramenta de qualidade e não de limitação ou block, lembre-se que a ideia é compartilhar a responsabilidade com o time de desenvolvimento, vai dizer que você nunca ficou com aquela ânsia quando ver o estágio(os) de segurança na pipeline.</p>
+<h2 id="2-shift-left">
+  2. Shift left
+  <a class="heading-link" href="#2-shift-left">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Melhor estratégia para compartilhar a responsabilidade com a equipe de desenvolvimento, em resumo o objetivo é trazer a segurança para o início do processo de desenvolvimento de software. Imagine o estágio de segurança rodando na IDE do desenvolvedor em tempo real, valido tudo que ele está sendo implementado, um sonho?</p>
+<p>Se ainda não ficou claro a necessidade do shift letf, imagine você desenvolver um software, sem realizar build, sem rodar testes e sem validar as dependências. Antes de comentar, sei que tem muito lugares que o exemplo acima é real, onde o desenvolvedor mal consegue buildar o projeto local, mas imagine o tempo para realizar essa entrega? Imagine quantos commits só para fazer uma simples entrega de funcionalidade de um software, e cada commit tem N estágios que o desenvolvedor só vai descobrir se atende ou não os requisitos no momento de esteira.</p>
+<p>O shift left da segurança vai da mais autonomia sobre o planejamento, antes no cenário acima o time só teria visibilidade dos problemas na etapa de entrega, que é a final, e ninguém quando tem a bola do pênalti, quer ter no lugar do goleiro tem um muro “Gate de Sec”.</p>
+<h2 id="3-framework-de-desenvolvimento-seguro">
+  3. Framework de desenvolvimento seguro
+  <a class="heading-link" href="#3-framework-de-desenvolvimento-seguro">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Bem, essa parte é onde o time de segurança deve atuar mais fortemente, nem todo desenvolvedor vai ter conhecimento necessários para corrigir ou mitigar uma vulnerabilidade. E por outro lado, o time de segurança não escala, você vai sempre um número limitado de colaborares, e aí? se correr o bicho pega, se ficar o bicho come?</p>
+<p>Defina um framework para que todos devem seguir, esse framework deve ser bem documentado e de fácil acesso para que todos tenham acesso. E você deve levar em consideração algumas features, a primeira dela é uma calculadora de risco de uma aplicação, exemplo OWASP Risk Assessment Framework, com ele você vai dar visibilidade do risco que cada aplicação, e vai dá a possibilidade e métricas para qual problema atacar primeiro (antes que os h4ckers ataquem), segunda feature do seu framework tem que ser a modelagem de ameaça, garanto que quando você vai desenvolver uma aplicação você pensa em qual linguagem, quais serviços, arquitetura, design patterns entre outras coisas (se você não pensa nessas coisas, comece a pensar!), mas e a lupa de segurança, porque quase nunca está associada na criação? Use a modelagem de ameaça para martela essa ideia, segurança tem que nascer junto a aplicação.</p>
+<p>Agora imagine que você tem a pipeline, fez o shift left, criou um framework de desenvolvimento seguro com tudo fluindo, e mesmo assim não consegue obter bons resultados? Bem só relembrando as expectativas, a ideia aqui é como se aborda DevSecOps ao ciclo de vida de desenvolvimento de software SDLC, e cada caso é um caso, os 3 pontos que falei brevemente servem para se criar uma adesão de forma mais natural.</p>
+<p>E não existe algoritmo para resolver todo problema de segurança, cada caso é um caso, além de existir outras formas de fazer essa aproximação de segurança com SDLC, como cursos (securtiy champions), fórum de discursão, exemplos de como fazer coisas corriqueiras de maneira segura, entre outras, enfim, já falei bastante.</p>
+<h3 id="links">
+  Links
+  <a class="heading-link" href="#links">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<ul>
+<li>Open Web Application Security Project <a href="https://owasp.org/"  class="external-link" target="_blank" rel="noopener">OWASP</a></li>
+<li>Entenda o risco de cada software <a href="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology"  class="external-link" target="_blank" rel="noopener">OWASP Risk Rating Methodology</a>.</li>
+<li><a href="https://owasp.org/www-community/Threat_Modeling"  class="external-link" target="_blank" rel="noopener">Threat Modeling</a></li>
+<li><a href="https://about.gitlab.com/topics/devsecops/"  class="external-link" target="_blank" rel="noopener">DevSecOps</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "disqus_xp6rFinZcu" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Matheus Moreira 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js" integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D&#43;Uk="></script>
+  
+
+  
+
+  
+
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BYSK1QRV5B"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BYSK1QRV5B', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
