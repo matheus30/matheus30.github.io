@@ -3,15 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.mflm.info/</loc>
-    <lastmod>2023-07-02T01:04:10-03:00</lastmod>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/categories/</loc>
-    <lastmod>2023-07-02T01:04:10-03:00</lastmod>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
   </url><url>
-    <loc>https://blog.mflm.info/tags/devops/</loc>
-    <lastmod>2023-07-02T01:04:10-03:00</lastmod>
+    <loc>https://blog.mflm.info/posts/como-lidar-com-command-line-interativos/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/categories/devops/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/expect/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/categories/linux/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/posts/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/shell-script/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/unix/</loc>
+    <lastmod>2023-07-05T20:59:29-03:00</lastmod>
+  </url><url>
+    <loc>https://blog.mflm.info/tags/devops/</loc>
     <lastmod>2023-07-02T01:04:10-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/tags/devsecops/</loc>
@@ -23,9 +44,6 @@
     <loc>https://blog.mflm.info/posts/devsecops/</loc>
     <lastmod>2023-07-02T01:04:10-03:00</lastmod>
   </url><url>
-    <loc>https://blog.mflm.info/posts/</loc>
-    <lastmod>2023-07-02T01:04:10-03:00</lastmod>
-  </url><url>
     <loc>https://blog.mflm.info/tags/seguran%C3%A7a/</loc>
     <lastmod>2023-07-02T01:04:10-03:00</lastmod>
   </url><url>
@@ -35,16 +53,10 @@
     <loc>https://blog.mflm.info/tags/shift-left/</loc>
     <lastmod>2023-07-02T01:04:10-03:00</lastmod>
   </url><url>
-    <loc>https://blog.mflm.info/tags/</loc>
-    <lastmod>2023-07-02T01:04:10-03:00</lastmod>
-  </url><url>
     <loc>https://blog.mflm.info/tags/arquivo/</loc>
     <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/tags/file/</loc>
-    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
-  </url><url>
-    <loc>https://blog.mflm.info/categories/linux/</loc>
     <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/tags/linux/</loc>
@@ -60,9 +72,6 @@
     <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/categories/security/</loc>
-    <lastmod>2023-06-11T19:39:05-03:00</lastmod>
-  </url><url>
-    <loc>https://blog.mflm.info/tags/unix/</loc>
     <lastmod>2023-06-11T19:39:05-03:00</lastmod>
   </url><url>
     <loc>https://blog.mflm.info/about/</loc>
