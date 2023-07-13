@@ -6,7 +6,17 @@
     <description>Recent content on blog.mflm.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-bt</language>
-    <lastBuildDate>Wed, 05 Jul 2023 20:59:29 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 22:26:32 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algoritmos</title>
+      <link>https://blog.mflm.info/posts/algoritmos/</link>
+      <pubDate>Wed, 12 Jul 2023 22:26:32 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/posts/algoritmos/</guid>
+      <description>Algoritmos, se você é desenvolvedor(a) já deve ter ouvido falar sobre, na faculdade ou em algum curso, geralmente se aprende junto com estrutura de dados, bom, em resumo algoritmo é uma sequência ou lista de instruções que você precisa seguir para resolver determinado problema ou executar uma determinada tarefa.
+Sempre vejo o exemplo da receita de bolo para explicar algoritmos, bem não vou entrar nesse ponto até porque não conheço nenhuma receita de bolo, enfim, imagine que você está encarregado de entregar o resultado de uma turma de alunos, a tarefa é simples, calcular a média se for maior que 7 aprovado, se não reprovado.</description>
+    </item>
+    
     <item>
       <title>Como lidar com command line interativo</title>
       <link>https://blog.mflm.info/posts/como-lidar-com-command-line-interativos/</link>
