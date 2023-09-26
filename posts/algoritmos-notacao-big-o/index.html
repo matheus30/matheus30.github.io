@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>
+  Algoritmos: Notação Big O · blog.mflm.info
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Matheus Moreira">
+<meta name="description" content="Seu principal aliado na hora do code review">
+<meta name="keywords" content="blog,developer,cyber,k8s,golang">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Algoritmos: Notação Big O"/>
+<meta name="twitter:description" content="Seu principal aliado na hora do code review"/>
+
+<meta property="og:title" content="Algoritmos: Notação Big O" />
+<meta property="og:description" content="Seu principal aliado na hora do code review" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.mflm.info/posts/algoritmos-notacao-big-o/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-25T22:37:18-03:00" />
+<meta property="article:modified_time" content="2023-09-25T22:37:18-03:00" />
+
+
+
+
+
+<link rel="canonical" href="https://blog.mflm.info/posts/algoritmos-notacao-big-o/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0669b62fc2c181a12a4ba10be9984e385c9a5e83dc7cb7ae3759ad0b98d7e8b2.css" integrity="sha256-Bmm2L8LBgaEqS6EL6ZhOOFyaXoPcfLeuN1mtC5jX6LI=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+
+<meta name="adopt-website-id" content="f19427a0-3bae-47db-aabf-c02be7d4836f" />
+<script src="//tag.goadopt.io/injector.js?website_code=f19427a0-3bae-47db-aabf-c02be7d4836f" 
+class="adopt-injector"></script>
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      blog.mflm.info
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">Home</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Artigos</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://blog.mflm.info/posts/algoritmos-notacao-big-o/">
+              Algoritmos: Notação Big O
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-09-25T22:37:18-03:00">
+                September 25, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/algoritmos/">Algoritmos</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/algoritmos/">Algoritmos</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Bem hoje vamos falar da notação Big O, matemática e código, tudo que um desenvolvedor gostar, correto? (Ouvi um sim daqui). Mas, calma, antes de tudo vamos alinhar as expectativas, até porque, combinado não sai caro, nesse artigo irei falar sobre o que é a notação, porque usá-la.</p>
+<p>Chega de enrolação, e vamos para uma breve explicação abaixo:</p>
+<blockquote>
+<p>Na matemática, a notação Big-O descreve o comportamento limitante de uma função quando o argumento tende a um valor específico ou para o infinito, normalmente, em termos de funções mais simples. É membro de uma família maior de notações conhecida como notação Landau, notação Bachmann–Landau ou notação assintótica. <!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted -->Grande-O – Wikipédia, a enciclopédia livre (wikipedia.org)<!-- raw HTML omitted --></li>
+</ul>
+</blockquote>
+<p>Essa definição causa mais dúvida do que entendimento, mas como dizia o filosofo Jason, vamos por partes, primeiro quando se fala em limitante imagine duas funções, f(x) e g(x), onde existe dois eixos (x, y) em um plano cartesiano, onde y representa o esforço que um programa realiza ao executar em relação a x que é a entrada a ser processada, quando digo que a função f(x) é limitante superior a g(x) estou falando que g(x) nunca vai ter um valor maior em y dado a mesma entrada x.</p>
+<p>No caso do Big O a ideia é saber qual é o limite superior, essa forma de analisar, conhecida também por “pior caso” referente ao comportamento do esforço em relação ao dado que irá ser processado, vai possibilitar entender o comportamento e medir a eficiência do seu código. Parece errôneo pensar sempre no pior caso, mas segue uma frase de exemplo “Meu salário como Analista de TI não é maior que o salário do melhor jogador de futebol do Brasil”, acredito que ficaram na dúvida, mas é verdade a afirmação acima, porém não é uma declaração precisa, mesmo assim não deixa de ser verdadeira.</p>
+<p>Então vamos para um exemplo teórico, O(n), chamada de função linear ou de primeiro grau, A letra n representa o tamanho da entrada, quanto a função f(n) = n interna ao O() nós dá ideia da complexidade do algoritmo em função da entrada, considerando que a complexidade interfere no comportamento de crescimento do esforço de execução, logo quanto maior a função, maior vai ser o esforço, e com isso você terá noção se seu código teria um selo tipo A no inmetro (Aquele selo que vem quando você compra algum produto eletrônico por exemplo).</p>
+<p><img src="/posts/images/big-o-complexity.png" alt="Big O chart"></p>
+<p>Imagem com a lista de complexidade, fonte <a href="https://www.bigocheatsheet.com/"  class="external-link" target="_blank" rel="noopener">https://www.bigocheatsheet.com/</a></p>
+<p>A imagem acima segue exemplo do comportamento de funções, a ideia e ter sempre algoritmos na faixa verde para amarelo, nem sempre isso vai ser possível. Recomendo inclusive acessar o site <a href="https://www.bigocheatsheet.com/"  class="external-link" target="_blank" rel="noopener">https://www.bigocheatsheet.com/</a> lá vocês encontraram complexidade de estruturas de dados conhecidas e a complexidade das operações. Voltando para exemplos anteriores o eixo Elements pode considerar a entrada(s) e o Operations o tempo de retorno dado o número de operações necessárias, fica nítido que um O(n) função constante irá processar em um tempo menor ou igual a função O(n²) função quadrática dado a mesma entrada n.</p>
+<p>Um ponto importante, para a complexidade não importa a função em si, mas sim a ordem de grandeza, imagine uma função f(x) = x² + 100x, a notação dessa função f(x) seria O(x²), função quadrática, por se tratar de uma função polinomial, e ter uma parte como função quadrática e outra função linear, escolhemos a de maior grandeza para representar.</p>
+<p>Bem, espero que tenham gostado, no próximo irei demostrar como realizar o calculo de complexidade e falar sobre algoritmos conhecidos, até lá.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mflm-info" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Matheus Moreira 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js" integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D&#43;Uk="></script>
+  
+
+  
+
+  
+
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BYSK1QRV5B"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-BYSK1QRV5B', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

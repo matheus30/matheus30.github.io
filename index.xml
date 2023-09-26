@@ -6,7 +6,18 @@
     <description>Recent content on blog.mflm.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-bt</language>
-    <lastBuildDate>Wed, 12 Jul 2023 22:26:32 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Sep 2023 22:37:18 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algoritmos: Notação Big O</title>
+      <link>https://blog.mflm.info/posts/algoritmos-notacao-big-o/</link>
+      <pubDate>Mon, 25 Sep 2023 22:37:18 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/posts/algoritmos-notacao-big-o/</guid>
+      <description>Bem hoje vamos falar da notação Big O, matemática e código, tudo que um desenvolvedor gostar, correto? (Ouvi um sim daqui). Mas, calma, antes de tudo vamos alinhar as expectativas, até porque, combinado não sai caro, nesse artigo irei falar sobre o que é a notação, porque usá-la.
+Chega de enrolação, e vamos para uma breve explicação abaixo:
+ Na matemática, a notação Big-O descreve o comportamento limitante de uma função quando o argumento tende a um valor específico ou para o infinito, normalmente, em termos de funções mais simples.</description>
+    </item>
+    
     <item>
       <title>Algoritmos</title>
       <link>https://blog.mflm.info/posts/algoritmos/</link>
