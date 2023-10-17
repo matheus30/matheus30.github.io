@@ -6,7 +6,17 @@
     <description>Recent content in Algoritmos on blog.mflm.info</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-bt</language>
-    <lastBuildDate>Mon, 25 Sep 2023 22:37:18 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/tags/algoritmos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Oct 2023 23:06:18 -0300</lastBuildDate><atom:link href="https://blog.mflm.info/tags/algoritmos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algoritmos: Calculando a complexidade de uma função</title>
+      <link>https://blog.mflm.info/posts/algoritmos-calculando-a-complexidade-de-uma-funcao/</link>
+      <pubDate>Mon, 16 Oct 2023 23:06:18 -0300</pubDate>
+      
+      <guid>https://blog.mflm.info/posts/algoritmos-calculando-a-complexidade-de-uma-funcao/</guid>
+      <description>Olá, jovens, seguindo a sequência de artigos sobre algoritmos hoje vamos entender como funciona o cálculo para descobrir a complexidade referente a utilização de recursos, entender o quanto de esforço seu algoritmo faz para resolver um problema dado uma entrada X? Vamos responder essa pergunta na sequência.
+Antes de sair definindo variáveis e funções, vamos definir o contexto, se você já programou ou está iniciando pode ficar confuso com algumas palavras que irei utilizar para realizar o cálculo, então sempre que falar operação, estou referindo a atribuição/definição de variáveis ou até mesmo condicionais (if/else), quando falar em interação/loop estou me referindo a laços de repetição.</description>
+    </item>
+    
     <item>
       <title>Algoritmos: Notação Big O</title>
       <link>https://blog.mflm.info/posts/algoritmos-notacao-big-o/</link>
